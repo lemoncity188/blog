@@ -157,6 +157,18 @@
 //
 //            }
 //        });
+        //init product
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: '/artwork/initproduct',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+
+            }
+        });
 
 
        var category=['shouldbag','wallet','backbag'];

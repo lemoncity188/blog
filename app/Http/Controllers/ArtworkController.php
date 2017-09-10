@@ -18,20 +18,25 @@ class ArtworkController extends Controller {
     }
 
     public function initprodcategory(){
-
-//        $test=[
-//            'shortimg'=>'url/img',
-//            'midstimg'=>'midurl/img',
-//            'largeimg'=>'largeurl/img'
-//        ];
-        $category=config('sort');
+        $category=config('sortconfig');
+        $index = 1;
         foreach ($category as $key=>$value){
             $tmpflock = implode(',',$value);
-            $result = DB::insert('insert into prodcategory (categoryname,prodidflock) values (?,?)', [$key,$tmpflock]);
+            $result = DB::insert('insert into prodcategory (categoryid,categoryname,prodidflock) values (?,?,?)', [$index,$key,$tmpflock]);
+            $index++;
             if($result == false)
                 return 'fail';
         }
         return 'success';
+    }
+
+    public function initproduct(){
+        $product=config('productconfig');
+        $index=1;
+        dd($product);
+        foreach ($product as $key=>$value){
+
+        }
     }
 
 
