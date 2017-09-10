@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Artwork</title>
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -61,8 +62,8 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
+                <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul  class="nav navbar-nav navbar-right">
                         <li><a href="#HOME">Home</a></li>
                         <li><a href="#SERVICE">Services</a></li>
                         <li><a href="#ABOUT">About</a></li>
@@ -79,11 +80,12 @@
 
 <div id="artworklist">
     <div id="list-left">
-        <div class="list-group">
-            <a href="#" class="list-group-item ">Dapibus ac facilisis in</a>
-            <a href="#" class="list-group-item ">Cras sit amet nibh libero</a>
-            <a href="#" class="list-group-item ">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item ">Vestibulum at eros</a>
+        <div id="bagcategory" class="list-group">
+
+            <a href="#" class="list-group-item " genre="shouldbag">shouldbag</a>
+            <a href="#" class="list-group-item " genre="wallet">wallet</a>
+            <a href="#" class="list-group-item " genre="backbag">backbag</a>
+
         </div>
     </div>
     <div id="product-right">
@@ -140,8 +142,46 @@
 <script src="{{asset('js/myheart/owl.carousel.js')}}"></script>
 <script src="{{asset('js/myheart/wow.js')}}"></script>
 <script src="{{asset('js/myheart/script.js')}}"></script>
+<script>
+    $(function(){
 
- 
+        //init prodcategory
+//        $.ajax({
+//            type: "post",
+//            dataType: "json",
+//            url: '/artwork/initprodcategory',
+//            headers: {
+//                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//            },
+//            success: function (data) {
+//
+//            }
+//        });
+
+
+       var category=['shouldbag','wallet','backbag'];
+       $('#bagcategory').on('click','a',function (evt) {
+           console.log($(evt.target).attr('genre'));
+           var type = $(evt.target).attr('genre');
+           $.ajax({
+               type: "post",
+               dataType: "json",
+               url: '/artwork/sort/'+type,
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+               success: function (data) {
+                   console.log(data);
+               }
+           });
+       })
+
+
+
+
+    });
+</script>
+
 
 
 </body>
