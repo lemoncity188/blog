@@ -30,14 +30,7 @@ class ArtworkController extends Controller {
         return 'success';
     }
 
-    public function initproduct(){
-        $product=config('productconfig');
-        $index=1;
-        dd($product);
-        foreach ($product as $key=>$value){
 
-        }
-    }
 
 
 }

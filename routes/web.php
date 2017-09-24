@@ -19,4 +19,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/artwork', 'ArtworkController@index');
 Route::post('/artwork/sort/{type}', 'ArtworkController@getsort');
 Route::post('/artwork/initprodcategory', 'ArtworkController@initprodcategory');
-Route::post('/artwork/initproduct', 'ArtworkController@initproduct');
+
+Route::get('/artwork/proddetail', 'ProductController@index');
+Route::get('/artwork/proddetail/{type}/{id}', 'ProductController@getProduct');
+Route::get('/artwork/initproduct', 'ProductController@initproduct');
