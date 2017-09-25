@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\DB;
 class ArtworkController extends Controller {
 
     public function index(){
-        return view('artwork');
+        $sort = DB::select('select * from prodcategory where categoryname=?',['shouldbag']);
+        $category = $sort[0]->prodidflock;
+//        $category = explode(',',$category);
+//        dd($category);
+        $mainimgurl = DB::select('select mainpic,prodid from product where prodid in (?)',[$category]);
+//        dd($mainimgurl);
+        return view('artwork',['sort'=>$mainimgurl]);
     }
 
     public function initprodcategory(){
@@ -28,6 +34,12 @@ class ArtworkController extends Controller {
                 return 'fail';
         }
         return 'success';
+    }
+
+    public function getsort($type){
+        $sort = DB::select('select * from prodcategory where categoryname=?',[$type]);
+        dd('kan');
+        return view('artwork',['sort'=>$sort]);
     }
 
 

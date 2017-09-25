@@ -79,23 +79,68 @@
 
 </header>
 
+<div id="artworklist">
+    <div id="list-left">
+        <div id="bagcategory" class="list-group">
 
-<div style="color:red;margin-top:200px">
-    {{ isset($result) ? 'gww' : 'Default' }}
-    @foreach ($result as $item)
-        <p>{{ $item->proddesc }}</p>
-        <img src="{{asset('/img/shoulderbag/shiweiya1.jpg')}}" />
-    @endforeach
+            <a href="#" class="list-group-item " genre="shouldbag">shouldbag</a>
+            <a href="#" class="list-group-item " genre="wallet">wallet</a>
+            <a href="#" class="list-group-item " genre="backbag">backbag</a>
+
+        </div>
+    </div>
+    <div id="product-right">
+        <div class="row product-right-row">
+            <div class="goodsshelf">
+
+                {{--<div style="width:100%;height:100%;background-color: red"></div>--}}
+            </div>
+            <div class="goodsshelf">
+
+            </div>
+
+            <div class="goodsshelf">
+
+            </div>
+            <div class="goodsshelf">
+
+            </div>
+        </div>
+        <div class="row product-right-row">
+            <div class="goodsshelf">
+
+
+            </div>
+            <div class="goodsshelf">
+
+            </div>
+            <div class="goodsshelf">
+
+            </div>
+            <div class="goodsshelf">
+
+            </div>
+
+        </div>
+    </div>
 </div>
 
+{{--<div style="color:red;margin-top:200px">--}}
+    {{--{{ isset($result) ? 'gww' : 'Default' }}--}}
+    {{--@foreach ($result as $item)--}}
+        {{--<p>{{ $item->proddesc }}</p>--}}
+        {{--<img src="{{asset('/img/shoulderbag/shiweiya1.jpg')}}" />--}}
+    {{--@endforeach--}}
+{{--</div>--}}
 
 
 
 
 
 
+</body>
 
-
+</html>
 
 <!-- =========================
      SCRIPTS
@@ -109,11 +154,41 @@
 <script src="{{asset('js/myheart/wow.js')}}"></script>
 <script src="{{asset('js/myheart/script.js')}}"></script>
 <script>
+    $(function(){
 
+        //init product
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: '/artwork/initproduct',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+
+            }
+        });
+
+
+        var category=['shouldbag','wallet','backbag'];
+        $('#bagcategory').on('click','a',function (evt) {
+            console.log($(evt.target).attr('genre'));
+            var type = $(evt.target).attr('genre');
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: '/artwork/sort/'+type,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        })
+
+
+
+
+    });
 </script>
-
-
-
-</body>
-
-</html>

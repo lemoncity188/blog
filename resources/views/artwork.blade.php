@@ -90,20 +90,22 @@
     </div>
     <div id="product-right">
         <div class="row product-right-row">
-            <div class="goodsshelf">
+            @foreach ($sort as $item)
 
-                {{--<div style="width:100%;height:100%;background-color: red"></div>--}}
-            </div>
-            <div class="goodsshelf">
 
-            </div>
+                    @if ($item->prodid <= 4)
 
-            <div class="goodsshelf">
+                        <div class="goodsshelf" prodid={{$item->prodid}}>
+                            <img src="{{asset($item->mainpic)}}">
+                        </div>
+                        @continue
+                    @endif
 
-            </div>
-            <div class="goodsshelf">
 
-            </div>
+
+            @endforeach
+
+
         </div>
         <div class="row product-right-row">
             <div class="goodsshelf">
@@ -125,11 +127,17 @@
 </div>
 
 
+{{--<div style="color:red;margin-top:200px">--}}
+
+{{--@foreach ($sort as $item)--}}
+    {{--{{$item->prodid}}--}}
+{{--@endforeach--}}
+{{--</div>--}}
 
 
+</body>
 
-
-
+</html>
 
 <!-- =========================
      SCRIPTS
@@ -157,45 +165,28 @@
 //
 //            }
 //        });
-        //init product
-        $.ajax({
-            type: "post",
-            dataType: "json",
-            url: '/artwork/initproduct',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (data) {
-
-            }
-        });
 
 
-       var category=['shouldbag','wallet','backbag'];
-       $('#bagcategory').on('click','a',function (evt) {
-           console.log($(evt.target).attr('genre'));
-           var type = $(evt.target).attr('genre');
-           $.ajax({
-               type: "post",
-               dataType: "json",
-               url: '/artwork/sort/'+type,
-               headers: {
-                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
-               success: function (data) {
-                   console.log(data);
-               }
-           });
-       })
+
+        var category=['shouldbag','wallet','backbag'];
+        $('#bagcategory').on('click','a',function (evt) {
+            console.log($(evt.target).attr('genre'));
+            var type = $(evt.target).attr('genre');
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: '/artwork/sort/'+type,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        })
 
 
 
 
     });
 </script>
-
-
-
-</body>
-
-</html>

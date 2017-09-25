@@ -17,7 +17,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/artwork', 'ArtworkController@index');
-Route::post('/artwork/sort/{type}', 'ArtworkController@getsort');
+Route::get('/artwork/sort/{type}', 'ArtworkController@getsort');
 Route::post('/artwork/initprodcategory', 'ArtworkController@initprodcategory');
 
 Route::get('/artwork/proddetail', 'ProductController@index');

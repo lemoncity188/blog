@@ -10,7 +10,7 @@ return [
             [
                 'prodid'=>1,
                 'name'=>'YouG FB-001',
-                'mainpic'=> 'img/shoulderbag/shiweiya1',
+                'mainpic'=> 'img/shoulderbag/shiweiya1.jpg',
                 'descpic' => '',
                 'proddesc'=>[
                         'Material: 100% Pu Leather.',
