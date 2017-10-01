@@ -36,10 +36,28 @@ class ArtworkController extends Controller {
         return 'success';
     }
 
-    public function getsort($type){
-        $sort = DB::select('select * from prodcategory where categoryname=?',[$type]);
-        dd('kan');
-        return view('artwork',['sort'=>$sort]);
+    //插入商品
+    public function initproduct(){
+
+        $product=config('productconfig');
+        $productdesc = null;
+        foreach ($product as $key=>$value){
+            $productdesc = json_encode($value['proddesc']);
+            $result = DB::insert('insert into product (prodid,name,mainpic,descpic,proddesc,spec,color,texture,num,price,url,brand,type,grocery,cateid) values
+                                (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [$value['prodid'],$value['name'],$value['mainpic'],$value['descpic'],
+                $productdesc,$value['spec'], $value['color'], $value['texture'],$value['num'], $value['price'],$value['url'],
+                $value['brand'],$value['type'],$value['grocery'],$value['cateid']
+            ]);
+            if($result == false)
+                return 'fail';
+        }
+        return 'success';
+    }
+
+    public function getClassify($type){
+        $result = DB::select('select * from product where type=?',[$type]);
+
+        return view('artwork',['sort'=>$result,'type'=>$type]);
     }
 
 

@@ -90,38 +90,7 @@
         </div>
     </div>
     <div id="product-right">
-        <div class="row product-right-row">
-            <div class="goodsshelf">
 
-                {{--<div style="width:100%;height:100%;background-color: red"></div>--}}
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-
-            <div class="goodsshelf">
-
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-        </div>
-        <div class="row product-right-row">
-            <div class="goodsshelf">
-
-
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-
-        </div>
     </div>
 </div>
 
@@ -157,17 +126,17 @@
     $(function(){
 
         //init product
-        $.ajax({
-            type: "post",
-            dataType: "json",
-            url: '/artwork/initproduct',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (data) {
-
-            }
-        });
+//        $.ajax({
+//            type: "post",
+//            dataType: "json",
+//            url: '/artwork/initproduct',
+//            headers: {
+//                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//            },
+//            success: function (data) {
+//
+//            }
+//        });
 
 
         var category=['shouldbag','wallet','backbag'];

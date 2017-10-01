@@ -16,10 +16,11 @@
 //});
 
 Route::get('/', 'HomeController@index');
-Route::get('/artwork', 'ArtworkController@index');
-Route::get('/artwork/sort/{type}', 'ArtworkController@getsort');
-Route::post('/artwork/initprodcategory', 'ArtworkController@initprodcategory');
+Route::get('/artwork', 'ArtworkController@index');                                         //进入商品列表
+Route::get('/artwork/initprodcategory', 'ArtworkController@initprodcategory');             //插入分类数据
+Route::get('/artwork/initproduct', 'ArtworkController@initproduct');                       //插入商品数据
+Route::get('/artwork/{type}', 'ArtworkController@getClassify');                   //获得某一类商品集合
 
-Route::get('/artwork/proddetail', 'ProductController@index');
-Route::get('/artwork/proddetail/{type}/{id}', 'ProductController@getProduct');
-Route::get('/artwork/initproduct', 'ProductController@initproduct');
+Route::get('/product/proddetail', 'ProductController@index');
+
+

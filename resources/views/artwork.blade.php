@@ -82,37 +82,31 @@
     <div id="list-left">
         <div id="bagcategory" class="list-group">
 
-            <a href="#" class="list-group-item " genre="shouldbag">shouldbag</a>
-            <a href="#" class="list-group-item " genre="wallet">wallet</a>
-            <a href="#" class="list-group-item " genre="backbag">backbag</a>
-
+            <a class="list-group-item" genre="shoulderbag">shoulderbag</a>
+            <a class="list-group-item" genre="wallet">wallet</a>
+            <a class="list-group-item" genre="backbag">backbag</a>
         </div>
     </div>
-    <div id="product-right">
-        <div class="row product-right-row">
-            @foreach ($sort as $item)
-                    @if ($item->prodid <=4)
-
+    <div id="product-right" classify={{$type}}>
+        <div class="row product-right-row" >
+            @foreach ($sort as $index=>$item)
+                    @if ($index <4)
                         <div class="goodsshelf" prodid={{$item->prodid}}>
                             <img class="goods-main-img" src="{{asset($item->mainpic)}}">
                         </div>
                         @continue
                     @endif
             @endforeach
-
-
-
         </div>
         <div class="row product-right-row">
-            @foreach ($sort as $item)
-                @if ($item->prodid > 4)
+            @foreach ($sort as $index=>$item)
+                @if ($index >= 4 && $index < 8)
                     <div class="goodsshelf" prodid={{$item->prodid}}>
                         <img class="goods-main-img" src="{{asset($item->mainpic)}}">
                     </div>
                     @continue
                 @endif
             @endforeach
-
         </div>
     </div>
 </div>
@@ -144,40 +138,33 @@
 <script>
     $(function(){
 
-        //init prodcategory
-//        $.ajax({
-//            type: "post",
-//            dataType: "json",
-//            url: '/artwork/initprodcategory',
-//            headers: {
-//                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//            },
-//            success: function (data) {
-//
-//            }
-//        });
-
-
-
-        var category=['shouldbag','wallet','backbag'];
+        var category=['shoulderbag','wallet','backbag'];
         $('#bagcategory').on('click','a',function (evt) {
-            console.log($(evt.target).attr('genre'));
             var type = $(evt.target).attr('genre');
-            $.ajax({
-                type: "post",
-                dataType: "json",
-                url: '/artwork/sort/'+type,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (data) {
-                    console.log(data);
-                }
-            });
+            window.location.href = '/artwork/'+type;
+
+//            $.ajax({
+//                type: "get",
+//                url: '/artwork/'+type,
+//                headers: {
+//                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                },
+//                success: function (data) {
+//                }
+//            });
         })
 
+        var type = $('#product-right').attr('classify');
+        $('.list-group-item').each(function(item){
+           console.log(this);
+           if($(this).attr('genre') == type)
+               $(this).addClass('active');
+        });
 
-
-
+        $('.list-group-item').hover(function(evt){
+            console.log(evt);
+            $('.list-group-item').removeClass('active');
+            console.log(this);
+        });
     });
 </script>
