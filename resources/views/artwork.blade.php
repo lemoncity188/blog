@@ -91,36 +91,27 @@
     <div id="product-right">
         <div class="row product-right-row">
             @foreach ($sort as $item)
-
-
-                    @if ($item->prodid <= 4)
+                    @if ($item->prodid <=4)
 
                         <div class="goodsshelf" prodid={{$item->prodid}}>
-                            <img src="{{asset($item->mainpic)}}">
+                            <img class="goods-main-img" src="{{asset($item->mainpic)}}">
                         </div>
                         @continue
                     @endif
-
-
-
             @endforeach
+
 
 
         </div>
         <div class="row product-right-row">
-            <div class="goodsshelf">
-
-
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-            <div class="goodsshelf">
-
-            </div>
-            <div class="goodsshelf">
-                
-            </div>
+            @foreach ($sort as $item)
+                @if ($item->prodid > 4)
+                    <div class="goodsshelf" prodid={{$item->prodid}}>
+                        <img class="goods-main-img" src="{{asset($item->mainpic)}}">
+                    </div>
+                    @continue
+                @endif
+            @endforeach
 
         </div>
     </div>

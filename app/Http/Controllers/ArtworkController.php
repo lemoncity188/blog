@@ -16,10 +16,10 @@ class ArtworkController extends Controller {
     public function index(){
         $sort = DB::select('select * from prodcategory where categoryname=?',['shouldbag']);
         $category = $sort[0]->prodidflock;
-//        $category = explode(',',$category);
-//        dd($category);
-        $mainimgurl = DB::select('select mainpic,prodid from product where prodid in (?)',[$category]);
-//        dd($mainimgurl);
+        $category = explode(',',$category);
+        $mainimgurl = DB::select('select mainpic,prodid from product where prodid in (?,?,?,?,?,?,?,?)',$category);
+        $queries = DB::getQueryLog();
+        $last_query = end($queries);
         return view('artwork',['sort'=>$mainimgurl]);
     }
 
@@ -28,7 +28,7 @@ class ArtworkController extends Controller {
         $index = 1;
         foreach ($category as $key=>$value){
             $tmpflock = implode(',',$value);
-            $result = DB::insert('insert into prodcategory (categoryid,categoryname,prodidflock) values (?,?,?)', [$index,$key,$tmpflock]);
+            $result = DB::insert('insert into prodcategory (categoryid,categoryname,prodidflock) values (?,?,?,?,?,?,?,?)', [$index,$key,$tmpflock]);
             $index++;
             if($result == false)
                 return 'fail';
