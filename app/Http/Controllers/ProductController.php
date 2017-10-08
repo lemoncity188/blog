@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function index(){
-        return view('product');
+    public function index($type,$prodid){
+        $result = DB::select('select * from product where prodid=?',[$prodid]);
+        $result[0]->proddesc = json_decode($result[0]->proddesc);
+        $result[0]->descpic = json_decode($result[0]->descpic);
+        return view('product',['proddetail'=>$result[0]]);
     }
 
 }

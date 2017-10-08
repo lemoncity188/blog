@@ -20,7 +20,7 @@ class ArtworkController extends Controller {
         $mainimgurl = DB::select('select mainpic,prodid from product where prodid in (?,?,?,?,?,?,?,?)',$category);
         $queries = DB::getQueryLog();
         $last_query = end($queries);
-        return view('artwork',['sort'=>$mainimgurl]);
+        return view('artwork',['sort'=>$mainimgurl,'type'=>'shoulderbag']);
     }
 
     public function initprodcategory(){
@@ -43,8 +43,9 @@ class ArtworkController extends Controller {
         $productdesc = null;
         foreach ($product as $key=>$value){
             $productdesc = json_encode($value['proddesc']);
+            $descpic = json_encode($value['descpic']);
             $result = DB::insert('insert into product (prodid,name,mainpic,descpic,proddesc,spec,color,texture,num,price,url,brand,type,grocery,cateid) values
-                                (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [$value['prodid'],$value['name'],$value['mainpic'],$value['descpic'],
+                                (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [$value['prodid'],$value['name'],$value['mainpic'],$descpic,
                 $productdesc,$value['spec'], $value['color'], $value['texture'],$value['num'], $value['price'],$value['url'],
                 $value['brand'],$value['type'],$value['grocery'],$value['cateid']
             ]);
@@ -56,7 +57,6 @@ class ArtworkController extends Controller {
 
     public function getClassify($type){
         $result = DB::select('select * from product where type=?',[$type]);
-
         return view('artwork',['sort'=>$result,'type'=>$type]);
     }
 

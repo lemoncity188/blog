@@ -8,10 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Artwork</title>
     <!-- Google Font -->
-    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    {{--<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>--}}
+    {{--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>--}}
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">--}}
     <!-- Preloader -->
     <link rel="stylesheet" href="{{asset('css/myheart/preloader.css')}}" type="text/css" media="screen, print"/>
 
@@ -64,12 +64,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul  class="nav navbar-nav navbar-right">
-                        <li><a href="#HOME">Home</a></li>
-                        <li><a href="#SERVICE">Services</a></li>
-                        <li><a href="#ABOUT">About</a></li>
-                        <li><a href="#TESTIMONIAL">Testimonial</a></li>
-                        <li><a href="#WORK">Work</a></li>
-                        <li><a href="#CONTACT">Contact</a></li>
+                        <li class="return-home">
+                            <a class="backhome-icon" href="/"></a>
+                        </li>
+                        <li>
+                            <a href="/">Back Home</a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
@@ -154,17 +154,21 @@
 //            });
         })
 
+        //actived category add class
         var type = $('#product-right').attr('classify');
         $('.list-group-item').each(function(item){
-           console.log(this);
            if($(this).attr('genre') == type)
                $(this).addClass('active');
         });
 
         $('.list-group-item').hover(function(evt){
-            console.log(evt);
             $('.list-group-item').removeClass('active');
-            console.log(this);
         });
+
+        $('#product-right').on('click','.goodsshelf',function (evt) {
+            var prodid = $(evt.currentTarget).attr('prodid');
+            window.location.href = '/product/'+type+'/'+prodid;
+        })
+
     });
 </script>

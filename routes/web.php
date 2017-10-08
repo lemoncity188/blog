@@ -21,6 +21,8 @@ Route::get('/artwork/initprodcategory', 'ArtworkController@initprodcategory');  
 Route::get('/artwork/initproduct', 'ArtworkController@initproduct');                       //插入商品数据
 Route::get('/artwork/{type}', 'ArtworkController@getClassify');                   //获得某一类商品集合
 
-Route::get('/product/proddetail', 'ProductController@index');
+Route::get('/product/{type}/{prodid}', 'ProductController@index');
+
+Route::post('/contact/guestinfo', 'ContactController@getGuestInfo');
 
 

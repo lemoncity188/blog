@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home</title>
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -74,7 +75,8 @@
                         <li><a href="#SERVICE">Services</a></li>
                         <li><a href="#ABOUT">About</a></li>
                         <li><a href="#TESTIMONIAL">Testimonial</a></li>
-                        <li><a href="#WORK">Work</a></li>
+                        <li><a href="#GALLERY">GALLERY</a></li>
+                        <li><a href="/artwork">WORK</a></li>
                         <li><a href="#CONTACT">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -260,7 +262,7 @@
     </section>
 </div>
 <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
-<section class="work_area" id="WORK">
+<section class="work_area" id="GALLERY">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -388,16 +390,17 @@
                 </div>
             </div>
             <div class="col-md-9  wow fadeInRight animated">
-                <form class="contact-form" action="">
+                <form  id="contactform" class="contact-form" action="">
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
-                            <input type="email" class="form-control" id="email" placeholder="Email">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                            <input type="text" name="linkedin" class="form-control" id="linkedin" placeholder="Linkedin">
+                            <input type="text" name="corporation" class="form-control" id="corporation" placeholder="Corporation">
                         </div>
                         <div class="col-md-6">
-                            <textarea class="form-control" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
-                            <button type="button" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button>
+                            <textarea name="message" class="form-control" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
+                            <button id="contactbtn" type="button" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button>
                         </div>
                     </div>
                 </form>
@@ -430,7 +433,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center   wow fadeInUp animated">
+                <div class="col-md-12 text-center wow fadeInUp animated">
                     <div class="social">
                         <h2>Follow Me on Here</h2>
                         <ul class="icon_list">
@@ -480,7 +483,24 @@
 <script src="{{asset('js/myheart/wow.js')}}"></script>
 <script src="{{asset('js/myheart/script.js')}}"></script>
 
-
+<script>
+    $('#contactbtn').on('click',function () {
+       var formdata = $('#contactform').serialize();
+       console.log(formdata);
+        $.ajax({
+            type: "post",
+//            dataType: "json",
+            url: '/contact/guestinfo',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: $('#contactform').serialize(),
+            success: function (data) {
+                console.log(data)
+            }
+        });
+    });
+</script>
 
 
 </body>

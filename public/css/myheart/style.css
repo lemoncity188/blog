@@ -329,7 +329,7 @@ text-transform: uppercase;
 	border-bottom: 1px solid #ddd;
 }
 
-/*Contact*/
+/*ContactController*/
 
 .single_contact_info{
 padding-bottom: 21px;	
@@ -362,7 +362,7 @@ margin-bottom: 20px;
 border: 0px solid #fff;
 }
 .contact-form #message{
-	height: 104px;
+	height: 176px;
 }
 .form_submit{
 width: 100%;

@@ -8,10 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Artwork</title>
     <!-- Google Font -->
-    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    {{--<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>--}}
+    {{--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>--}}
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">--}}
     <!-- Preloader -->
     <link rel="stylesheet" href="{{asset('css/myheart/preloader.css')}}" type="text/css" media="screen, print"/>
 
@@ -25,7 +25,7 @@
     <link href="{{asset('css/myheart/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Style -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/myheart/artwork.css')}}" rel="stylesheet">
+    <link href="{{asset('css/myheart/product.css')}}" rel="stylesheet">
     <!-- Responsive CSS -->
     <link href="{{asset('css/myheart/responsive.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -64,12 +64,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul  class="nav navbar-nav navbar-right">
-                        <li><a href="#HOME">Home</a></li>
-                        <li><a href="#SERVICE">Services</a></li>
-                        <li><a href="#ABOUT">About</a></li>
-                        <li><a href="#TESTIMONIAL">Testimonial</a></li>
-                        <li><a href="#WORK">Work</a></li>
-                        <li><a href="#CONTACT">Contact</a></li>
+                        <li class="return-home">
+                            <a class="backhome-icon" href="/"></a>
+                        </li>
+                        <li>
+                            <a href="/">Back Home</a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
@@ -83,24 +83,55 @@
     <div id="list-left">
         <div id="bagcategory" class="list-group">
 
-            <a href="#" class="list-group-item " genre="shouldbag">shouldbag</a>
+            <a href="#" class="list-group-item " genre="shoulderbag">shoulderbag</a>
             <a href="#" class="list-group-item " genre="wallet">wallet</a>
             <a href="#" class="list-group-item " genre="backbag">backbag</a>
 
         </div>
     </div>
-    <div id="product-right">
 
+
+    <div id="product-right">
+        <div id="productDetail">
+
+            <div id="mainpic">
+                <img src="{{asset($proddetail->mainpic)}}" />
+            </div>
+            <div id="description">
+                <ul>
+                    @foreach ($proddetail->proddesc as $index=>$brief)
+                    <li>
+                        {{$brief}}
+                    </li>
+                    @endforeach
+                </ul>
+                <div class="product-brief">
+                    <div class="left">
+                        <span>code:</span> <span>{{$proddetail->name}}</span>
+                    </div>
+                    <div class="right">
+                        <span>texture:</span>{{$proddetail->texture}}<span></span>
+                    </div>
+                </div>
+                <div class="product-brief">
+                    <div class="left">
+                        <span>dimensions:</span> <span>{{$proddetail->spec}}</span>
+                    </div>
+                    <div class="right">
+                        <span>color:</span> <span>{{$proddetail->color}}</span>
+                    </div>
+                </div>
+            </div>
+            {{--@endforeach--}}
+        </div>
+        <div id="gallery">
+            @foreach ($proddetail->descpic as $index=>$descpic)
+                <div><img src="{{asset($descpic)}}" /></div>
+            @endforeach
+        </div>
     </div>
 </div>
 
-{{--<div style="color:red;margin-top:200px">--}}
-    {{--{{ isset($result) ? 'gww' : 'Default' }}--}}
-    {{--@foreach ($result as $item)--}}
-        {{--<p>{{ $item->proddesc }}</p>--}}
-        {{--<img src="{{asset('/img/shoulderbag/shiweiya1.jpg')}}" />--}}
-    {{--@endforeach--}}
-{{--</div>--}}
 
 
 
@@ -139,22 +170,22 @@
 //        });
 
 
-        var category=['shouldbag','wallet','backbag'];
+        var category=['shoulderbag','wallet','backbag'];
         $('#bagcategory').on('click','a',function (evt) {
-            console.log($(evt.target).attr('genre'));
             var type = $(evt.target).attr('genre');
-            $.ajax({
-                type: "post",
-                dataType: "json",
-                url: '/artwork/sort/'+type,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (data) {
-                    console.log(data);
-                }
-            });
+            window.location.href = '/artwork/'+type;
         })
+
+        //actived category add class
+        var type = $('#product-right').attr('classify');
+        $('.list-group-item').each(function(item){
+            if($(this).attr('genre') == type)
+                $(this).addClass('active');
+        });
+
+        $('.list-group-item').hover(function(evt){
+            $('.list-group-item').removeClass('active');
+        });
 
 
 
