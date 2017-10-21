@@ -87,8 +87,8 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="home_text wow fadeInUp animated">
-                        <h2>it’s abdullah noman</h2>
-                        <p>a user interface and user experience specialist</p>
+                        <h2>M O K A</h2>
+                        <p>we only make expert bag,we only design distinctive bag!</p>
                         <img src="{{asset('img/myheart/shape.png')}}" alt="">
                     </div>
                 </div>
@@ -117,28 +117,28 @@
                 <div class="single_service wow fadeInUp" data-wow-delay="1s">
                     <i class="icon-pencil"></i>
                     <h2>Design</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                    <p>Expert design only for your taste.</p>
                 </div>
             </div>
             <div class="col-md-3 text-center">
                 <div class="single_service wow fadeInUp" data-wow-delay="2s">
                     <i class="icon-gears"></i>
                     <h2>Development</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                    <p>Constantly develope new style.</p>
                 </div>
             </div>
             <div class="col-md-3 text-center">
                 <div class="single_service wow fadeInUp" data-wow-delay="3s">
                     <i class="icon-camera"></i>
-                    <h2>Photography</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                    <h2>Material</h2>
+                    <p>Consist of premium material.</p>
                 </div>
             </div>
             <div class="col-md-3 text-center">
                 <div class="single_service wow fadeInUp" data-wow-delay="4s">
                     <i class="icon-magnifying-glass"></i>
-                    <h2>Seo</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                    <h2>Service</h2>
+                    <p>Custom service let you get comfort.</p>
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div class="single_progress_bar">
-                    <h2>MARKETING - 75%</h2>
+                    <h2>Material - 75%</h2>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
                             <span class="sr-only">60% Complete</span>
@@ -183,7 +183,7 @@
                     </div>
                 </div>
                 <div class="single_progress_bar">
-                    <h2>SEO - 95%</h2>
+                    <h2>Service - 95%</h2>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
                             <span class="sr-only">60% Complete</span>
@@ -192,10 +192,10 @@
                 </div>
             </div>
             <div class="col-md-4  wow fadeInRight animated">
-                <p class="about_us_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed quia non numquam eius modi tempora.</p>
+                <p class="about_us_p">Moka is a female bag brand, create in 1983. We have excess 10 years experience for abroad customer to serve.</p>
             </div>
             <div class="col-md-4  wow fadeInRight animated">
-                <p class="about_us_p">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                <p class="about_us_p">Moka have already served more than 58 mall and enterprise. We are the supplier of first-rate brand and have cooperation deeply yet.</p>
             </div>
         </div>
     </div>
@@ -382,7 +382,7 @@
                 </div>
                 <div class="single_contact_info">
                     <h2>Email Me</h2>
-                    <p>Hello@abdullahnoman.com</p>
+                    <p>mokaguru@gmail.com</p>
                 </div>
                 <div class="single_contact_info">
                     <h2>Address</h2>
