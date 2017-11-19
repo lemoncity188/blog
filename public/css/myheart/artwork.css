@@ -126,5 +126,12 @@ ul.navbar-right{
     align-items: center;
 }
 
+.corporationname{
+    position: relative;
+    top:16px;
+    left:-56px;
+    color: #999;
+}
+
 
 

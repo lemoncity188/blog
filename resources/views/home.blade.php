@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Home</title>
+    <title>mokabag</title>
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -66,6 +66,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><img src="{{asset('img/myheart/logo.png')}}" alt=""></a>
+                    <span class="corporationname">MOKA</span>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -87,7 +88,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="home_text wow fadeInUp animated">
-                        <h2>M O K A</h2>
+                        <h2>M O K A BAG</h2>
                         <p>we only make expert bag,we only design distinctive bag!</p>
                         <img src="{{asset('img/myheart/shape.png')}}" alt="">
                     </div>
@@ -209,12 +210,12 @@
         </div>
         <div class="owl-carousel">
             <div class="single_testimonial text-center wow fadeInUp animated">
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores<br/> eos qui ratione voluptatem sequi nesciunt.</p>
-                <h4>-JOHN DOE</h4>
+                <p>Moka is an expert corporation which has many experience in bag domain.<br/>They give me a very comfortable trade experience.</p>
+                <h4>Wal-Mart vice president - JOHN SMITH</h4>
             </div>
             <div class="single_testimonial text-center">
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius<br/> modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                <h4>-JOHN SMITH</h4>
+                <p>They give me very good impress,their service is very patient.<br/>Their product is very distinctive.</p>
+                <h4>Amazon bags division chief advisor - David</h4>
             </div>
         </div>
     </div>
@@ -231,22 +232,22 @@
                             <div class="col-md-4">
                                 <div class="single_count">
                                     <i class="icon-toolbox"></i>
-                                    <h3>300</h3>
-                                    <p>Project Done</p>
+                                    <h3>300+</h3>
+                                    <p>Customer</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="single_count">
                                     <i class="icon-clock"></i>
-                                    <h3>1700+</h3>
-                                    <p>Hours Worked</p>
+                                    <h3>8+</h3>
+                                    <p>international brands supplier</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="single_count">
                                     <i class="icon-trophy"></i>
                                     <h3>37</h3>
-                                    <p>Awards Won</p>
+                                    <p>Patent</p>
                                 </div>
                             </div>
                         </div>
@@ -269,7 +270,7 @@
                 <div class="work_title  wow fadeInUp animated">
                     <h1>Latest Works</h1>
                     <img src="{{asset('img/myheart/shape.png')}}" alt="">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna <br> aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
+                    <p> </p>
                 </div>
             </div>
         </div>
@@ -278,7 +279,7 @@
         <div class="row">
             <div class="col-md-4 no_padding">
                 <div class="single_image">
-                    <img src="{{asset('img/myheart/w1.jpg')}}" alt="">
+                    <img src="{{asset('img/myheart/m1.jpg')}}" alt="">
                     <div class="image_overlay">
                         <a href="">View Full Project</a>
                         <h2>drawing</h2>
@@ -288,7 +289,7 @@
             </div>
             <div class="col-md-4 no_padding">
                 <div class="single_image">
-                    <img src="{{asset('img/myheart/w2.jpg')}}" alt="">
+                    <img src="{{asset('img/myheart/m2.jpg')}}" alt="">
                     <div class="image_overlay">
                         <a href="">View Full Project</a>
                         <h2>drawing</h2>
@@ -298,7 +299,7 @@
             </div>
             <div class="col-md-4 no_padding">
                 <div class="single_image">
-                    <img src="{{asset('img/myheart/w3.jpg')}}" alt="">
+                    <img src="{{asset('img/myheart/m3.jpg')}}" alt="">
                     <div class="image_overlay">
                         <a href="">View Full Project</a>
                         <h2>drawing</h2>
@@ -310,7 +311,7 @@
         <div class="row pad_top">
             <div class="col-md-4 no_padding">
                 <div class="single_image">
-                    <img src="{{asset('img/myheart/w4.jpg')}}" alt="">
+                    <img src="{{asset('img/myheart/m4.jpg')}}" alt="">
                     <div class="image_overlay">
                         <a href="">View Full Project</a>
                         <h2>drawing</h2>
@@ -320,7 +321,7 @@
             </div>
             <div class="col-md-4 no_padding">
                 <div class="single_image">
-                    <img src="{{asset('img/myheart/w5.jpg')}}" alt="">
+                    <img src="{{asset('img/myheart/m5.jpg')}}" alt="">
                     <div class="image_overlay">
                         <a href="">View Full Project</a>
                         <h2>drawing</h2>
@@ -376,18 +377,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3  wow fadeInLeft animated">
-                <div class="single_contact_info">
-                    <h2>Call Me</h2>
-                    <p>+88 00 123 456 01</p>
-                </div>
+                {{--<div class="single_contact_info">--}}
+                    {{--<h2>Call Me</h2>--}}
+                    {{--<p>+88 00 123 456 01</p>--}}
+                {{--</div>--}}
                 <div class="single_contact_info">
                     <h2>Email Me</h2>
                     <p>mokaguru@gmail.com</p>
                 </div>
-                <div class="single_contact_info">
-                    <h2>Address</h2>
-                    <p>216 Street Address, Barisal, BD</p>
-                </div>
+                {{--<div class="single_contact_info">--}}
+                    {{--<h2>Address</h2>--}}
+                    {{--<p>216 Street Address, Barisal, BD</p>--}}
+                {{--</div>--}}
             </div>
             <div class="col-md-9  wow fadeInRight animated">
                 <form  id="contactform" class="contact-form" action="">

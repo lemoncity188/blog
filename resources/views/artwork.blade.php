@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Artwork</title>
+    <title>mokabag</title>
     <!-- Google Font -->
     {{--<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>--}}
     {{--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>--}}
@@ -59,6 +59,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><img src="{{asset('img/myheart/logo.png')}}" alt=""></a>
+                    <span class="corporationname">MOKA</span>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
